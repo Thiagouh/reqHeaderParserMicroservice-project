@@ -1,5 +1,6 @@
 require("dotenv").config();
 var express = require("express");
+const serverless = require('serverless-http');
 var app = express();
 
 var cors = require("cors");
@@ -32,3 +33,5 @@ app.get("/api/whoami", function (req, res) {
 var listener = app.listen(process.env.PORT || 3000, function () {
   console.log("Your app is listening on port " + listener.address().port);
 });
+
+module.exports.handler = serverless(app);
