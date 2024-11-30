@@ -1,6 +1,7 @@
 require("dotenv").config();
-var express = require("express");
-const serverless = require('serverless-http');
+const express = require("express");
+const serverless = require("serverless-http");
+const path = require("path");
 var app = express();
 
 var cors = require("cors");
@@ -9,7 +10,7 @@ app.use(cors({ optionsSuccessStatus: 200 }));
 app.use(express.static("public"));
 
 app.get("/", function (req, res) {
-  res.sendFile(__dirname + "/views/index.html");
+  res.sendFile(path.join(__dirname + "../public/index.html"));
 });
 
 app.get("/api/hello", function (req, res) {
