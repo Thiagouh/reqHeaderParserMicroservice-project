@@ -29,4 +29,4 @@ app.get("/api/whoami", function (req, res) {
   });
 });
 
-module.exports.handler = serverless(app);
+module.exports = serverless(app);
