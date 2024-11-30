@@ -9,7 +9,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/api/hello", (req, res) => {
-  res.json({ greeting: "hello API" });
+  res.send({ greeting: "hello API" });
 });
 
 app.get("/api/whoami", (req, res) => {
@@ -18,7 +18,7 @@ app.get("/api/whoami", (req, res) => {
   const language = req.headers["accept-language"];
   const software = req.headers["user-agent"];
 
-  res.json({
+  res.send({
     ipaddress: ipaddress,
     language: language,
     software: software,
