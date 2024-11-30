@@ -1,25 +1,18 @@
-require("dotenv").config();
 const express = require("express");
-const serverless = require("serverless-http");
-const path = require("path");
-var app = express();
-
-var cors = require("cors");
-app.use(cors({ optionsSuccessStatus: 200 }));
+const app = express();
 
 app.use(express.static("public"));
 
-app.get("/", function (req, res) {
-  res.sendFile(path.join(__dirname + "../public/index.html"));
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname + "/public/index.html"));
 });
 
-app.get("/api/hello", function (req, res) {
+app.get("/api/hello", (req, res) => {
   res.json({ greeting: "hello API" });
 });
 
-app.get("/api/whoami", function (req, res) {
-  const ipaddress =
-    req.headers["x-forwarded-for"]?.split(",")[0] || req.socket.remoteAddress;
+app.get("/api/whoami", (req, res) => {
+  const ipaddress = req.headers["x-forwarded-for"]?.split(",")[0] || req.socket.remoteAddress;
   const language = req.headers["accept-language"];
   const software = req.headers["user-agent"];
 
@@ -30,4 +23,4 @@ app.get("/api/whoami", function (req, res) {
   });
 });
 
-module.exports = serverless(app);
+module.exports = app;
