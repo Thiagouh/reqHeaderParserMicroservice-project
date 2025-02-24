@@ -4,7 +4,7 @@ module.exports = (req, res) => {
   const language = req.headers["accept-language"];
   const software = req.headers["user-agent"];
 
-  res.json({
+  res.status(200).json({
     ipaddress: ipaddress,
     language: language,
     software: software,

@@ -4,11 +4,14 @@
     {
       "src": "api/whoami.js",
       "use": "@vercel/node"
+    },
+    {
+      "src": "public/index.html",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
-    { "src": "/api/whoami", "dest": "api/whoami.js" }
+    { "src": "/api/whoami", "dest": "/api/whoami.js" },
+    { "src": "/", "dest": "/public/index.html" }
   ]
 }
-
-
