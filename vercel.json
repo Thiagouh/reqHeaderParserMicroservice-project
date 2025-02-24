@@ -7,7 +7,7 @@
     }
   ],
   "routes": [
-    { "src": "/api/whoami.js", "dest": "api/whoami.js" }
+    { "src": "/api/whoami", "dest": "api/whoami.js" }
   ]
 }
 
