@@ -1,4 +1,6 @@
 module.exports = (req, res) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  
   const ipaddress =
     req.headers["x-forwarded-for"]?.split(",")[0] || req.socket.remoteAddress;
   const language = req.headers["accept-language"];
